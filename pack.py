@@ -7,6 +7,7 @@ class Menu:
 	def cls(self):
 		return os.system('cmd /c "cls"')
 
+
 	def mainMenu(self):
 		self.cls()
 		print(""" 
@@ -19,17 +20,22 @@ pilih: """.format(self.uname))
 		inp = int(input('>'))
 		return inp
 
+
 	def showMenu(self,data):
+		self.cls()
 		print(""" 
 ==========<[{}]>===========
 		 """.format(self.uname))
 		n = 1
-		for i in data:
-			print('({}){}'.format(n,i))
+		for pfor,pswd in data.items():
+			print("{}.{} => {}".format(n,pfor,pswd))
+			n += 1
 
 		print(""" 
-===========================
-		 """)		
+==============================
+		 """)
+		inp = input('>')
+		return inp		
 
 	def insertMenu(self):
 		self.cls()
