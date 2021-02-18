@@ -57,7 +57,14 @@ try:
 						break
 
 					elif inputMenu == 2:
-						m.buatMenu()
+						res = db.child('Users').child(UNAME).child('list').get()
+						data = {}
+						for i in res.each():
+							data_buffer = {i.key():i.val()}
+							data.update(data_buffer)
+
+						m.showMenu(data)
+
 
 					elif inputMenu == 1:
 						m.insertMenu()
